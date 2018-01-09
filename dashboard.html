@@ -1,0 +1,305 @@
+<html><head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="lib/gridster.js-master/dist/jquery.gridster.css">
+  <link rel="stylesheet" type="text/css" href="css/shadow.css">
+  <link rel="stylesheet" type="text/css" href="css/gallery.css">
+
+  <link class="include" rel="stylesheet" type="text/css" href="lib/jqplot/jquery.jqplot.min.css" />
+    <link type="text/css" rel="stylesheet" href="lib/jqplot/syntaxhighlighter/styles/shCoreDefault.min.css" />
+    <link type="text/css" rel="stylesheet" href="lib/jqplot/syntaxhighlighter/styles/shThemejqPlot.min.css" />
+
+<style type="text/css">
+[data-col="17"] { left:1765px; }
+ [data-col="16"] { left:1655px; }
+ [data-col="15"] { left:1545px; }
+ [data-col="14"] { left:1435px; }
+ [data-col="13"] { left:1325px; }
+ [data-col="12"] { left:1215px; }
+ [data-col="11"] { left:1105px; }
+ [data-col="10"] { left:995px; }
+ [data-col="9"] { left:885px; }
+ [data-col="8"] { left:775px; }
+ [data-col="7"] { left:665px; }
+ [data-col="6"] { left:555px; }
+ [data-col="5"] { left:445px; }
+ [data-col="4"] { left:335px; }
+ [data-col="3"] { left:225px; }
+ [data-col="2"] { left:115px; }
+ [data-col="1"] { left:5px; }
+ [data-row="16"] { top:980px; }
+ [data-row="15"] { top:915px; }
+ [data-row="14"] { top:850px; }
+ [data-row="13"] { top:785px; }
+ [data-row="12"] { top:720px; }
+ [data-row="11"] { top:655px; }
+ [data-row="10"] { top:590px; }
+ [data-row="9"] { top:525px; }
+ [data-row="8"] { top:460px; }
+ [data-row="7"] { top:395px; }
+ [data-row="6"] { top:330px; }
+ [data-row="5"] { top:265px; }
+ [data-row="4"] { top:200px; }
+ [data-row="3"] { top:135px; }
+ [data-row="2"] { top:70px; }
+ [data-row="1"] { top:5px; }
+ [data-sizey="1"] { height:55px; }
+ [data-sizey="2"] { height:120px; }
+ [data-sizey="3"] { height:185px; }
+ [data-sizey="4"] { height:250px; }
+ [data-sizey="5"] { height:315px; }
+ [data-sizey="6"] { height:380px; }
+ [data-sizey="7"] { height:445px; }
+ [data-sizey="8"] { height:510px; }
+ [data-sizey="9"] { height:575px; }
+ [data-sizey="10"] { height:640px; }
+ [data-sizey="11"] { height:705px; }
+ [data-sizey="12"] { height:770px; }
+ [data-sizey="13"] { height:835px; }
+ [data-sizey="14"] { height:900px; }
+ [data-sizey="15"] { height:965px; }
+ [data-sizex="1"] { width:100px; }
+ [data-sizex="2"] { width:210px; }
+ [data-sizex="3"] { width:320px; }
+ [data-sizex="4"] { width:430px; }
+ [data-sizex="5"] { width:540px; }
+ [data-sizex="6"] { width:650px; }
+ [data-sizex="7"] { width:760px; }
+ [data-sizex="8"] { width:870px; }
+ [data-sizex="9"] { width:980px; }
+ [data-sizex="10"] { width:1090px; }
+ [data-sizex="11"] { width:1200px; }
+ [data-sizex="12"] { width:1310px; }
+ [data-sizex="13"] { width:1420px; }
+ [data-sizex="14"] { width:1530px; }
+ [data-sizex="15"] { width:1640px; }
+ [data-sizex="16"] { width:1750px; }
+</style></head>
+
+<body>
+
+	<div id="container">
+		<div id="header">
+	        <h1>
+	            New Dashboard Layout
+	        </h1>
+	        <h3>How work really gets done</h3>
+	        <button onclick="addNew()">Add</button>
+	        <button onclick="getLayout()">Layout</button>
+	    </div>
+
+	    <div class="gridster ready">
+	        <ul style="position: relative;">
+	        </ul>
+	    </div>
+
+
+	    <script type="text/javascript" src="lib/jquery/jquery-1.9.1.min.js"></script>
+	    <script src="lib/gridster.js-master/dist/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+
+
+	        <script class="include" type="text/javascript" src="lib/jqplot/jquery.jqplot.min.js"></script>
+			    <script type="text/javascript" src="lib/jqplot/syntaxhighlighter/scripts/shCore.min.js"></script>
+			    <script type="text/javascript" src="lib/jqplot/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+			    <script type="text/javascript" src="lib/jqplot/syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+			<!-- Additional plugins go here -->
+
+			  <script class="include" type="text/javascript" src="lib/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+			  <script class="include" type="text/javascript" src="lib/jqplot/plugins/jqplot.highlighter.min.js"></script>
+			  <script class="include" type="text/javascript" src="lib/jqplot/plugins/jqplot.cursor.min.js"></script>
+			  <script class="include" type="text/javascript" src="lib/jqplot/plugins/jqplot.pointLabels.min.js"></script>
+
+			<!-- End additional plugins -->
+
+
+	    <script type="text/javascript">
+
+	    	var gridster;
+
+		    function addNew() {
+			    var i = gridster.$widgets.length;
+			    var tile = {size_x:3,size_y:5,col:1,row:1,chartUrl:""};
+			      tile["id"] = "tile_" + i;
+			      tile["container"] = "tile_cont_" + i;
+			      tile["tileUrl"] = tile.chartUrl;
+
+					var html =
+					"<li id="+tile.id+">"+
+						"<div class='item drop-shadow round'>" +
+							"<div id="+tile.container+" class='item-container'>" +
+							"</div>" +
+							"<div class='item-footer'>Chart Title "+ i +"</div>" +
+						"</div>"+
+					"</li>";
+
+					// html, width, height, cols, rows
+					gridster.add_widget( html, tile["size_x"], tile["size_y"], tile["col"], tile["row"] );
+
+
+					//chart renderer for tile
+					setTimeout( function() {
+									chartRenderer( tile );
+								}, 800);
+
+			}
+
+			function getLayout() {
+				var s = gridster.serialize();
+
+				alert(JSON.stringify(gridster.serialize()));
+				console.log(JSON.stringify(gridster.serialize()));
+			}
+
+			function chartRenderer( tile ) {
+
+				// dummy chart
+				var s1 = [[2002, 112000], [2003, 122000], [2004, 104000], [2005, 99000], [2006, 121000],
+				    [2007, 148000], [2008, 114000], [2009, 133000], [2010, 161000], [2011, 173000]];
+				    var s2 = [[2002, 10200], [2003, 10800], [2004, 11200], [2005, 11800], [2006, 12400],
+				    [2007, 12800], [2008, 13200], [2009, 12600], [2010, 13100]];
+
+				    plot1 = $.jqplot(tile.container, [s2, s1], {
+				        // Turns on animatino for all series in this plot.
+				        animate: true,
+				        // Will animate plot on calls to plot1.replot({resetAxes:true})
+				        animateReplot: true,
+				        cursor: {
+				            show: true,
+				            zoom: true,
+				            looseZoom: true,
+				            showTooltip: false
+				        },
+				        series:[
+				            {
+				                pointLabels: {
+				                    show: false
+				                },
+				                renderer: $.jqplot.BarRenderer,
+				                showHighlight: false,
+				                yaxis: 'y2axis',
+				                rendererOptions: {
+				                    // Speed up the animation a little bit.
+				                    // This is a number of milliseconds.
+				                    // Default for bar series is 3000.
+				                    animation: {
+				                        speed: 2500
+				                    },
+				                    barWidth: 15,
+				                    barPadding: -15,
+				                    barMargin: 0,
+				                    highlightMouseOver: false
+				                }
+				            },
+				            {
+				                rendererOptions: {
+				                    // speed up the animation a little bit.
+				                    // This is a number of milliseconds.
+				                    // Default for a line series is 2500.
+				                    animation: {
+				                        speed: 2000
+				                    }
+				                }
+				            }
+				        ],
+				        axesDefaults: {
+				            pad: 0
+				        },
+				        axes: {
+				            // These options will set up the x axis like a category axis.
+				            xaxis: {
+				                tickInterval: 1,
+				                drawMajorGridlines: false,
+				                drawMinorGridlines: true,
+				                drawMajorTickMarks: false,
+				                rendererOptions: {
+				                tickInset: 0.5,
+				                minorTicks: 1
+				            }
+				            },
+				            yaxis: {
+				                tickOptions: {
+				                    formatString: "$%'d"
+				                },
+				                rendererOptions: {
+				                    forceTickAt0: true
+				                }
+				            },
+				            y2axis: {
+				                tickOptions: {
+				                    formatString: "$%'d"
+				                },
+				                rendererOptions: {
+				                    // align the ticks on the y2 axis with the y axis.
+				                    alignTicks: true,
+				                    forceTickAt0: true
+				                }
+				            }
+				        },
+				        highlighter: {
+				            show: true,
+				            showLabel: true,
+				            tooltipAxes: 'y',
+				            sizeAdjust: 7.5 , tooltipLocation : 'ne'
+				        }
+				    });
+			}
+
+
+
+	      $(function(){
+
+		      // input json
+		      var grids =
+		      [
+		      	{"col":1,"row":1,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":4,"row":1,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":7,"row":1,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":10,"row":1,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":13,"row":1,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":1,"row":6,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":4,"row":6,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":7,"row":6,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":10,"row":6,"size_x":3,"size_y":5,chartUrl:""},
+		      	{"col":13,"row":6,"size_x":3,"size_y":5,chartUrl:""}
+		      ];
+
+		      gridster = $(".gridster > ul").gridster({
+				widget_margins: [12, 12],
+				widget_base_dimensions: [100, 55],
+				resize : {
+					enabled : true,
+					max_cols : 16
+				}
+		      }).data('gridster');
+
+		      for( var i=0; i<grids.length; i++ ) {
+			      var tile = grids[i];
+			      tile["id"] = "tile_" + i;
+			      tile["container"] = "tile_cont_" + i;
+			      tile["tileUrl"] = tile.chartUrl;
+
+					var html =
+					"<li id="+tile.id+">"+
+						"<div class='item drop-shadow round'>" +
+							"<div id="+tile.container+" class='item-container'>" +
+							"</div>" +
+							"<div class='item-footer'>Chart Title "+ i +"</div>" +
+						"</div>"+
+					"</li>";
+
+					// html, width, height, cols, rows
+					gridster.add_widget( html, tile["size_x"], tile["size_y"], tile["col"], tile["row"] );
+
+					//chart renderer for tile
+					chartRenderer( tile );
+		      }
+
+	  });
+
+
+
+
+	    </script>
+	</div>
+
+
+</body></html>

@@ -1,0 +1,162 @@
+.gridster * {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/*
+* demo
+*/
+
+
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #444;
+    margin: 0px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+/*
+* gridster
+*/
+
+.gridster ul {
+    background-color: #FFFFFF;
+}
+
+.gridster li {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100%;
+}
+
+
+.gridster {
+    margin: 0 auto;
+    margin-left : 10px;
+    margin-right : 10px;
+
+    opacity: .8;
+
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.gridster .gs-w {
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+.gridster .player {
+    background: #BBB;
+}
+
+
+.gridster .preview-holder {
+    border: none!important;
+    background: red!important;
+}
+
+
+#header {
+  background: #000;
+  margin: 0px;
+  padding: 20px;
+}
+#header h1 {
+  font-family: Arial;
+  color: #FFF;
+  margin: 0px;
+}
+
+#header h3 {
+  font-family:Arial;
+  padding:0px;
+  margin:2px;
+  font-size:0.9em;
+  color:#666;
+}
+
+#header h1 a {
+  color:white;
+  text-decoration:none;
+}
+
+#header .cart-info {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  text-align: right;
+  padding: 10px;
+  background: #714625;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+}
+
+.item {
+	-moz-border-radius:7px 7px 7px 7px;
+	-webkit-border-radius:7px 7px 7px 7px;
+	border-radius:7px 7px 7px 7px;
+	border:1px solid #CCCCCC;
+	float:left;
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	width:99%;
+	height:99%
+	}
+
+.item-title {
+  font-weight: bold;
+}
+.item-artist {
+  font-weight: bold;
+  font-size: 14px;
+}
+.item-detail .item-image {
+  float:left;
+}
+.item-detail .item-info {
+float:left;
+padding:100px 33px 0;
+}
+
+.item-footer {
+	bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.subalbum img{
+   width:170px;
+}
+
+.jstest {
+  padding:10px;
+}
+
+ .back-link {
+ padding-top:10px;
+ float:left;
+}
+
+.gallery { list-style-type:none}
+.gallery img { width:250px;}
